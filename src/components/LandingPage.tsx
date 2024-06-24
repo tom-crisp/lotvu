@@ -5,7 +5,7 @@ function LandingPage() {
     <div className="min-h-screen bg-white text-gray-800">
       {/* Navigation */}
       <header className="flex items-center justify-between px-8 py-4">
-        <div className="text-2xl font-bold">LotVu</div>
+        <div className="text-2xl font-bold">Lotvu</div>
         <nav className="space-x-4">
           <a href="#features" className="hover:underline">Features</a>
           <a href="#about" className="hover:underline">About</a>
@@ -15,7 +15,7 @@ function LandingPage() {
 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center px-8 py-20 bg-gradient-to-b from-blue-50 to-white">
-        <h1 className="text-5xl font-extrabold mb-4">Discover Smart Property Investment with LotVu</h1>
+        <h1 className="text-5xl font-extrabold mb-4">Discover Smart Property Investment with Lotvu</h1>
         <p className="text-lg mb-8">Leverage AI and comprehensive data insights to make informed investment decisions.</p>
         <a href="#features" className="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">
           Get Started
@@ -44,8 +44,8 @@ function LandingPage() {
 
       {/* About Section */}
       <section id="about" className="px-8 py-20 bg-gray-50">
-        <h2 className="text-4xl font-bold text-center mb-12">About LotVu</h2>
-        <p className="max-w-3xl mx-auto text-center">LotVu is a cutting-edge property investment tool that integrates AI and comprehensive data to provide investors with unparalleled insights and analytics. Our mission is to empower investors with the knowledge and tools they need to make smart property investment decisions.</p>
+        <h2 className="text-4xl font-bold text-center mb-12">About Lotvu</h2>
+        <p className="max-w-3xl mx-auto text-center">Lotvu is a cutting-edge property investment tool that integrates AI and comprehensive data to provide investors with unparalleled insights and analytics. Our mission is to empower investors with the knowledge and tools they need to make smart property investment decisions.</p>
       </section>
 
       {/* Contact Section */}
@@ -70,7 +70,7 @@ function LandingPage() {
 
       {/* Footer */}
       <footer className="px-8 py-4 bg-gray-800 text-white text-center">
-        <p>&copy; 2024 LotVu. All rights reserved.</p>
+        <p>&copy; 2024 Lotvu. All rights reserved.</p>
       </footer>
     </div>
   );
