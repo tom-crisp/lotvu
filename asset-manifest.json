@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/www.lotvu.com/static/css/main.8b15f588.css",
-    "main.js": "/www.lotvu.com/static/js/main.3fd09ee9.js",
-    "static/js/453.08031d11.chunk.js": "/www.lotvu.com/static/js/453.08031d11.chunk.js",
-    "index.html": "/www.lotvu.com/index.html",
-    "main.8b15f588.css.map": "/www.lotvu.com/static/css/main.8b15f588.css.map",
-    "main.3fd09ee9.js.map": "/www.lotvu.com/static/js/main.3fd09ee9.js.map",
-    "453.08031d11.chunk.js.map": "/www.lotvu.com/static/js/453.08031d11.chunk.js.map"
+    "main.css": "/lotvu/static/css/main.8b15f588.css",
+    "main.js": "/lotvu/static/js/main.bafaa770.js",
+    "static/js/453.08031d11.chunk.js": "/lotvu/static/js/453.08031d11.chunk.js",
+    "index.html": "/lotvu/index.html",
+    "main.8b15f588.css.map": "/lotvu/static/css/main.8b15f588.css.map",
+    "main.bafaa770.js.map": "/lotvu/static/js/main.bafaa770.js.map",
+    "453.08031d11.chunk.js.map": "/lotvu/static/js/453.08031d11.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8b15f588.css",
-    "static/js/main.3fd09ee9.js"
+    "static/js/main.bafaa770.js"
   ]
 }
