@@ -2,7 +2,6 @@
   "name": "lotvu",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tom-crisp.github.io/lotvu",
   "dependencies": {
     "@heroicons/react": "^2.1.4",
     "@testing-library/jest-dom": "^5.17.0",
