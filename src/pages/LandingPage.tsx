@@ -1,4 +1,5 @@
 import { ArrowRightIcon } from '@heroicons/react/24/solid';
+import { Link } from 'react-router-dom';
 
 function LandingPage() {
   return (
@@ -43,9 +44,15 @@ function LandingPage() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="px-8 py-20 bg-gray-50">
+      <section id="about" className="px-8 py-20 bg-gray-50 text-center">
         <h2 className="text-4xl font-bold text-center mb-12">About Lotvu</h2>
         <p className="max-w-3xl mx-auto text-center">Lotvu is a cutting-edge property investment tool that integrates AI and comprehensive data to provide investors with unparalleled insights and analytics. Our mission is to empower investors with the knowledge and tools they need to make smart property investment decisions.</p>
+        <Link to="/properties">
+          <button className="inline-flex items-center bg-blue-600 text-white px-4 py-2 mt-8 rounded-full hover:bg-blue-700">
+            See Demo
+            <ArrowRightIcon className="w-5 h-5 ml-2" />
+          </button>
+        </Link>
       </section>
 
       {/* Contact Section */}
