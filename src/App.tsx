@@ -5,7 +5,7 @@ import PropertyPage from './pages/PropertyPage';
 function App() {
   return (
     <Router>
-      <div className="App min-h-screen bg-gray-100 flex flex-col items-center justify-center">
+      <div className="App min-h-screen bg-gray-800 flex flex-col items-center justify-center">
         <Routes>
           <Route
             path="/"
