@@ -30,3 +30,14 @@ export interface OptionType {
   value: string;
   label: string;
 }
+
+export type SortableKeys = keyof Pick<
+  PropertyWithMetrics,
+  | "ltv"
+  | "loanAmount"
+  | "downPayment"
+  | "annualIncome"
+  | "predictedYield"
+  | "roi"
+  | "cashOnCashFlow"
+>;

@@ -3,7 +3,7 @@ import { PropertyWithMetrics } from "../types";
 import { formatCurrency, formatPercentage } from "../utils/formatters";
 import { FaChevronDown, FaChevronLeft, FaChevronRight, FaChevronUp } from "react-icons/fa";
 
-const PropertyCard = ({ property }: { property: PropertyWithMetrics }) => {
+const PropertyCard = ({ property, key}: { property: PropertyWithMetrics, key: string }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [statIndex, setStatIndex] = useState(0);
 
@@ -26,7 +26,7 @@ const PropertyCard = ({ property }: { property: PropertyWithMetrics }) => {
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md">
+    <div key={key} className="bg-white p-4 rounded-lg shadow-md">
       <img src={property.mainImage} alt={property.summary} className="mb-4 w-full h-48 rounded-lg object-cover" />
       <div className="mb-4 flex justify-between">
         <div>

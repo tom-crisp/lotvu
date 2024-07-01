@@ -241,11 +241,7 @@ const PropertyPage: React.FC = () => {
                 : error ? <h1 className="text-3xl font-bold mb-4 md:mb-0">{error}</h1> : <></>
           }
         </div>
-              <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                { 
                 <PropertiesList propertiesWithMetrics={propertiesWithMetrics} /> 
-                }
-                </div>
       </main>
     </div>
   );
