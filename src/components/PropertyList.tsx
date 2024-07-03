@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import { PropertyWithMetrics, SortableKeys } from "../types";
 import PropertyCard from "./PropertyCard";
 import SortComponent from "./SortComponent";
+import { useAppDispatch } from "../redux/hooks";
+import { setPropertiesWithMetrics } from "../redux/propertySlice";
 
 const PropertiesList = ({ propertiesWithMetrics }: { propertiesWithMetrics: PropertyWithMetrics[] }) => {
-  const [sortedProperties, setSortedProperties] = useState(propertiesWithMetrics);
-
-  useEffect(() => {
-    setSortedProperties(propertiesWithMetrics);
-  }, [propertiesWithMetrics]);
+  const dispatch = useAppDispatch();
 
   const handleSortChange = (sortBy: SortableKeys, order: "asc" | "desc") => {
     const sorted = [...propertiesWithMetrics].sort((a, b) => {
@@ -23,7 +21,7 @@ const PropertiesList = ({ propertiesWithMetrics }: { propertiesWithMetrics: Prop
       if (aValue > bValue) return order === "asc" ? 1 : -1;
       return 0;
     });
-    setSortedProperties(sorted);
+    dispatch(setPropertiesWithMetrics(sorted));
   };
 
   return (
@@ -32,8 +30,8 @@ const PropertiesList = ({ propertiesWithMetrics }: { propertiesWithMetrics: Prop
       <SortComponent onSortChange={handleSortChange} />
     </div>
         <div className="grid w-full grid-cols-1 gap-4">
-        {sortedProperties.map((property, index) => (
-          <PropertyCard key={`${index}-${property.id}`} property={property} />
+        {propertiesWithMetrics.map((property, index) => (
+          <PropertyCard key={`${index}property.id}`} property={property} />
         ))}
         </div>
     </div>

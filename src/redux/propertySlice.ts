@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { OptionType } from '../types';
+import { OptionType, PropertyWithMetrics } from '../types';
 import { RootState } from './store';
 
 interface PropertyState {
@@ -16,11 +16,13 @@ interface PropertyState {
   inputValue: string;
   selectedOption: OptionType | null;
   isAdvancedOpen: boolean;
-  propertiesWithMetrics: any[];
+  propertiesWithMetrics: PropertyWithMetrics[];
   averageRent: number;
   averagePrice: number;
   loading: boolean;
   error: string;
+  sortBy: string;
+  sortOrder: "asc" | "desc";
 }
 
 const initialState: PropertyState = {
@@ -41,7 +43,9 @@ const initialState: PropertyState = {
   averageRent: 0,
   averagePrice: 0,
   loading: false,
-  error: ''
+  error: '',
+  sortBy: "investabilityScore",
+  sortOrder: "asc",
 };
 
 const propertySlice = createSlice({
@@ -87,7 +91,7 @@ const propertySlice = createSlice({
     setIsAdvancedOpen: (state, action: PayloadAction<boolean>) => {
       state.isAdvancedOpen = action.payload;
     },
-    setPropertiesWithMetrics: (state, action: PayloadAction<any[]>) => {
+    setPropertiesWithMetrics: (state, action: PayloadAction<PropertyWithMetrics[]>) => {
       state.propertiesWithMetrics = action.payload;
     },
     setAverageRent: (state, action: PayloadAction<number>) => {
@@ -101,6 +105,12 @@ const propertySlice = createSlice({
     },
     setError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
+    },
+    setSortBy: (state, action: PayloadAction<string>) => {
+      state.sortBy = action.payload;
+    },
+    setSortOrder: (state, action: PayloadAction<"asc" | "desc">) => {
+      state.sortOrder = action.payload;
     },
   },
 });
@@ -124,6 +134,8 @@ export const {
   setAveragePrice,
   setLoading,
   setError,
+  setSortBy,
+  setSortOrder,
 } = propertySlice.actions;
 
 export const selectPropertyState = (state: RootState) => state.property;

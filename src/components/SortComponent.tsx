@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Select from "react-select";
 import { FaSortAmountDown, FaSortAmountUp } from "react-icons/fa";
 import { SortableKeys } from "../types";
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { setSortBy, setSortOrder, selectPropertyState } from '../redux/propertySlice';
 
 const sortOptions = [
   { value: "investabilityScore", label: "Invest Score"},
@@ -31,25 +33,25 @@ const customStyles = {
 };
 
 const SortComponent: React.FC<SortComponentProps> = ({ onSortChange }) => {
-  const [selectedOption, setSelectedOption] = useState(sortOptions[0]);
-  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
+  const dispatch = useAppDispatch();
+  const { sortBy, sortOrder } = useAppSelector(selectPropertyState);
 
   const handleSortChange = (option: any) => {
-    setSelectedOption(option);
+    dispatch(setSortBy(option.value));
     onSortChange(option.value as SortableKeys, sortOrder);
   };
 
   const toggleSortOrder = () => {
     const newOrder = sortOrder === "asc" ? "desc" : "asc";
-    setSortOrder(newOrder);
-    onSortChange(selectedOption.value as SortableKeys, newOrder);
+    dispatch(setSortOrder(newOrder));
+    onSortChange(sortBy as SortableKeys, newOrder);
   };
 
   return (
     <div className="flex items-center space-x-4">
       <label className="block text-gray-700 text-sm font-bold mb-2">Sort:</label>
       <Select
-        value={selectedOption}
+        value={sortOptions.find(option => option.value === sortBy)}
         onChange={handleSortChange}
         options={sortOptions}
         className="w-64"
