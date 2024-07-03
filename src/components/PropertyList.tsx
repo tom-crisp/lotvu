@@ -31,7 +31,7 @@ const PropertiesList = ({ propertiesWithMetrics }: { propertiesWithMetrics: Prop
     <div className="self-center my-8">
       <SortComponent onSortChange={handleSortChange} />
     </div>
-        <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid w-full grid-cols-1 gap-4">
         {sortedProperties.map((property, index) => (
           <PropertyCard key={`${index}-${property.id}`} property={property} />
         ))}

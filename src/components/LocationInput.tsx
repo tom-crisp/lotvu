@@ -84,7 +84,7 @@ const LocationInput: React.FC<LocationInputProps> = ({
           placeholder="Type a location..."
           styles={customStyles}
           isClearable
-          className="w-1/2 pl-10 rounded-full shadow-sm border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200"
+          className="w-1/2 pl-10 rounded-full shadow-sm border-gray-300 "
         />
       </div>
     </div>

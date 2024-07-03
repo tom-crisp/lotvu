@@ -1,11 +1,12 @@
-import { useState } from 'react';
 import axios from 'axios';
-import { Property, PropertyWithMetrics } from '../types';
+import { Property } from '../types';
 import { calculateMetrics } from '../utils/metrics';
+import { formatPriceString } from '../utils/formatters';
+import { setPropertiesWithMetrics, setAverageRent, setAveragePrice } from '../redux/propertySlice';
+import { useAppDispatch } from '../redux/hooks';
 
 export const useFetchProperties = () => {
-  const [propertiesWithMetrics, setPropertiesWithMetrics] = useState<PropertyWithMetrics[]>([]);
-  const [averageRent, setAverageRent] = useState(0);
+  const dispatch = useAppDispatch();
 
   const fetchProperties = async (payload: any) => {
     try {
@@ -16,22 +17,32 @@ export const useFetchProperties = () => {
       }
 
       const response = await axios.post<any, { data: { properties: Property[], rentals: any[], location: any } }>(
-        'http://localhost:3001/fetch-properties', payload);
+        'http://localhost:3001/fetch-properties', payload
+      );
 
+      const salesData = response.data.properties;
       const rentalData = response.data.rentals;
       const rentPrices = rentalData.map(property => property.price.amount);
+      const salePrices = salesData.map(property => formatPriceString(property.price));
 
       const averageRent = rentPrices.reduce((acc, price) => acc + price, 0) / rentPrices.length;
-      setAverageRent(averageRent);
+      const averagePrice = salePrices.reduce((acc, price) => acc + price, 0) / salePrices.length;
+      dispatch(setAverageRent(averageRent));
+      dispatch(setAveragePrice(averagePrice));
 
-      const pwm = response.data.properties.map(property => calculateMetrics(property, averageRent));
-      setPropertiesWithMetrics(pwm);
+      // Remove duplicates based on the property id
+      const uniqueProperties = salesData.filter((property, index, self) =>
+        index === self.findIndex((p) => p.summary === property.summary)
+      );
+
+      const pwm = uniqueProperties.map(property => calculateMetrics(property, averageRent));
+      dispatch(setPropertiesWithMetrics(pwm));
 
     } catch (error) {
       console.error(error);
-      return "No Properties were found..."
+      return "No Properties were found...";
     }
   };
 
-  return { propertiesWithMetrics, averageRent, fetchProperties };
+  return { fetchProperties };
 };

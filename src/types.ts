@@ -24,6 +24,7 @@ export interface PropertyWithMetrics extends Property {
   predictedYield: string;
   roi: string;
   cashOnCashFlow: string;
+  investabilityScore: string;
 }
 
 export interface OptionType {

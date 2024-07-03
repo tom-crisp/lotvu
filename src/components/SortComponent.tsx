@@ -4,10 +4,10 @@ import { FaSortAmountDown, FaSortAmountUp } from "react-icons/fa";
 import { SortableKeys } from "../types";
 
 const sortOptions = [
+  { value: "investabilityScore", label: "Invest Score"},
   { value: "ltv", label: "LTV" },
   { value: "loanAmount", label: "Loan Amount" },
   { value: "downPayment", label: "Down Payment" },
-  { value: "annualIncome", label: "Annual Income" },
   { value: "predictedYield", label: "Predicted Yield" },
   { value: "roi", label: "ROI" },
   { value: "cashOnCashFlow", label: "Cash on Cash Flow" },
